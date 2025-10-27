@@ -1,0 +1,49 @@
+$lines_number: 6;
+
+.card-overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+}
+.card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card:hover {
+  .card-overlay {
+    opacity: 1;
+  }
+
+  .card-image {
+    filter: brightness(70%);
+  }
+}
+
+.overlay-title {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.overlay-text {
+  font-size: 0.8rem;
+
+  display: -webkit-box;
+  -webkit-line-clamp: $lines_number;
+  -webkit-box-orient: vertical;
+  line-clamp: $lines_number;
+  overflow: hidden;
+}
