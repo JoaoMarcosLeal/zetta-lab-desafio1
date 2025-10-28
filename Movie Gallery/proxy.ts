@@ -21,7 +21,7 @@ app.get("/movies/popular", (req, res) => {
   });
 });
 
-app.get("/movies/playing_now", (req, res) => {
+app.get("/movies/now_playing", (req, res) => {
   const options = {
     method: "get",
     url: "https://api.themoviedb.org/3/movie/now_playing",
