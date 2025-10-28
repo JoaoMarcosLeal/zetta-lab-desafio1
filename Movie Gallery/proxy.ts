@@ -21,6 +21,34 @@ app.get("/movies/popular", (req, res) => {
   });
 });
 
+app.get("/movies/playing_now", (req, res) => {
+  const options = {
+    method: "get",
+    url: "https://api.themoviedb.org/3/movie/now_playing",
+    params: {
+      language: "pt-BR",
+      api_key: process.env.REACT_APP_TMDB_KEY,
+    },
+  };
+  axios.request(options).then((response) => {
+    res.json(response.data.results);
+  });
+});
+
+app.get("/movies/top_rated", (req, res) => {
+  const options = {
+    method: "get",
+    url: "https://api.themoviedb.org/3/movie/top_rated",
+    params: {
+      language: "pt-BR",
+      api_key: process.env.REACT_APP_TMDB_KEY,
+    },
+  };
+  axios.request(options).then((response) => {
+    res.json(response.data.results);
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
 });
