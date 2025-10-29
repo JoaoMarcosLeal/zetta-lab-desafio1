@@ -10,53 +10,18 @@ import "./MainPage.scss";
 import axios from "axios";
 
 import MovieList from "../MovieList/MovieList";
+import Header from "../Header/Header";
 
 // Exibe a página principal da aplicação
 export default function MainPageTest() {
-  const [search, setSearch] = useState<MovieFilters["search"]>("");
-  const [category, setCategory] = useState<MovieFilters["category"]>("popular");
   const [movies, setMovies] = useState<Array<Movie>>([]);
 
-  let path = "";
-  useEffect(() => {
-    // gambiarra para determinar o caminho(remover, se der tempo)
-    if (search && search.length > 0) {
-      path = `http://localhost:8080/movies/search?query=${search}`;
-    } else {
-      path = `http://localhost:8080/movies/${category}`;
-    }
-
-    const options = {
-      method: "get",
-      url: path,
-    };
-
-    axios
-      .request(options)
-      .then((response) => {
-        setMovies(response.data);
-      })
-      .catch((error) => {
-        console.error("Erro ao carregar filmes:", error);
-      });
-  }, [search, category]);
-
   return (
-    <>
-      <div className="d-grid gap-3">
-        <header className="d-flex justify-content-between py-4 mb-3 border-bottom header align-items-center">
-          <h1 className="header-title">Movie Gallery</h1>
-          <MovieListFilters
-            onChange={(filters) => {
-              setCategory(filters.category);
-              setSearch(filters.search);
-            }}
-          />
-        </header>
-        <div>
-          <MovieList movies={movies} />
-        </div>
+    <div className="d-grid gap-3">
+      <Header onChange={(newMovies) => setMovies(newMovies)}></Header>
+      <div>
+        <MovieList movies={movies} />
       </div>
-    </>
+    </div>
   );
 }
