@@ -7,7 +7,7 @@ const PORT: number = 8080;
 const app = express();
 app.use(cors());
 
-app.get("/movies/popular", (req, res) => {
+app.get("/movies/popular", (_req, res) => {
   const options = {
     method: "get",
     url: "https://api.themoviedb.org/3/movie/popular",
@@ -21,7 +21,7 @@ app.get("/movies/popular", (req, res) => {
   });
 });
 
-app.get("/movies/now_playing", (req, res) => {
+app.get("/movies/now_playing", (_req, res) => {
   const options = {
     method: "get",
     url: "https://api.themoviedb.org/3/movie/now_playing",
@@ -35,7 +35,7 @@ app.get("/movies/now_playing", (req, res) => {
   });
 });
 
-app.get("/movies/top_rated", (req, res) => {
+app.get("/movies/top_rated", (_req, res) => {
   const options = {
     method: "get",
     url: "https://api.themoviedb.org/3/movie/top_rated",
