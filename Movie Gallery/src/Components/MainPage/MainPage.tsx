@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
+
 import type { MovieFilters } from "../../types/MovieFilter";
-import MovieListFilters from "../MovieListFilters/MovieListFilters";
 import type { Movie } from "../../types/Movie";
+
+import MovieListFilters from "../MovieListFilters/MovieListFilters";
+
+import "./MainPage.scss";
+
 import axios from "axios";
+
 import MovieList from "../MovieList/MovieList";
 
 // Exibe a página principal da aplicação
@@ -38,7 +44,8 @@ export default function MainPageTest() {
   return (
     <>
       <div className="d-grid gap-3">
-        <header className="d-flex justify-content-between py-3 mb-3 border-bottom header">
+        <header className="d-flex justify-content-between py-4 mb-3 border-bottom header align-items-center">
+          <h1 className="header-title">Movie Gallery</h1>
           <MovieListFilters
             onChange={(filters) => {
               setCategory(filters.category);
