@@ -1,13 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import type { MovieFilters } from "../../types/MovieFilter";
 import type { Movie } from "../../types/Movie";
 
-import MovieListFilters from "../MovieListFilters/MovieListFilters";
-
 import "./MainPage.scss";
-
-import axios from "axios";
 
 import MovieList from "../MovieList/MovieList";
 import Header from "../Header/Header";
