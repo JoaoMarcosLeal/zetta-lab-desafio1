@@ -27,34 +27,36 @@ Para colocar o projeto no ar, siga os passos abaixo no terminal:
 
 ### 1. Clonar o Repositório
 
-```bash
+```
 git clone <URL_DO_SEU_REPOSITORIO>
 cd <NOME_DO_DIRETORIO_DO_PROJETO>
 2. Variáveis de Ambiente (Chave da API)
 Você precisará de uma chave de API do TMDB. Crie um arquivo chamado .env na raiz do projeto e adicione sua chave:
-
-Snippet de código
+```
+```Snippet de código
 
 # Exemplo de variável, o nome real pode variar (ex: VITE_TMDB_API_KEY, REACT_APP_TMDB_API_KEY)
 REACT_APP_TMDB_API_KEY="SUA_CHAVE_AQUI"
+```
 3. Instalando Dependências
 Execute o comando para baixar todas as dependências do projeto:
 
-Bash
-
+```
 npm install 
 # ou
 # npm i
-4. Executando o Mini-Backend (Opcional)
-Se o seu projeto possuir um mock de API ou um servidor de dados locais, inicie-o com o seguinte comando:
-
+````
+4. Executando o Mini-Backend 
+```
 Bash
 
 npm run start:backend
+```
 5. Rodando o Front-end
 Inicie o servidor de desenvolvimento do React:
+```
 
-Bash
 
 npm run dev
+```
 Após a execução, o projeto estará acessível no seu navegador, geralmente em http://localhost:5173 ou na porta indicada no seu terminal.
