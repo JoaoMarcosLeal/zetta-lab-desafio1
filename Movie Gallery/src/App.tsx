@@ -1,4 +1,3 @@
-import "./App.scss";
 import MainPage from "./Components/MainPage/MainPage";
 
 function Page() {

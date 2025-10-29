@@ -5,7 +5,7 @@ import StarRating from "../StarRating/StarRating";
 
 export default function MovieCard(movie: Movie) {
   return (
-    <Card style={{ width: "20rem" }} className="card">
+    <Card className="card h-100">
       <Card.Img
         variant="top"
         src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
