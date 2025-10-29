@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import MovieListFilters from "../MovieListFilters/MovieListFilters";
 
@@ -11,13 +11,12 @@ type HeaderProps = {
   onChange: (movies: Array<Movie>) => void;
 };
 
-export default function header({ onChange }: HeaderProps) {
+export default function Header({ onChange }: HeaderProps) {
   const [search, setSearch] = useState<MovieFilters["search"]>("");
   const [category, setCategory] = useState<MovieFilters["category"]>("popular");
 
-  let path = "";
-  useEffect(() => {
-    // gambiarra para determinar o caminho(remover, se der tempo)
+  const getMovies = useCallback(() => {
+    let path = "";
     if (search && search.length > 0) {
       path = `http://localhost:8080/movies/search?query=${search}`;
     } else {
@@ -37,18 +36,22 @@ export default function header({ onChange }: HeaderProps) {
       .catch((error) => {
         console.error("Erro ao carregar filmes:", error);
       });
-  }, [search, category]);
+  }, [search, category, onChange]);
+
+  useEffect(() => {
+    getMovies();
+  }, [getMovies]);
+
+  const handleFilterChange = useCallback((filters: MovieFilters) => {
+    setCategory(filters.category);
+    setSearch(filters.search || "");
+  }, []);
 
   return (
     <>
       <header className="d-flex justify-content-between py-4 mb-3 border-bottom header align-items-center">
         <h1 className="header-title">Movie Gallery</h1>
-        <MovieListFilters
-          onChange={(filters) => {
-            setCategory(filters.category);
-            setSearch(filters.search);
-          }}
-        />
+        <MovieListFilters onChange={handleFilterChange} />
       </header>
     </>
   );
