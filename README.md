@@ -1,4 +1,4 @@
-# 🎬 Movie Explorer Project
+# 🎬 Movie Gallery Project
 
 Bem-vindo ao repositório do projeto **Movie Explorer**! Este projeto é uma aplicação web desenvolvida para explorar informações sobre filmes e séries, consumindo dados diretamente da API do **The Movie Database (TMDB)**.
 
