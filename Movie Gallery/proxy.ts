@@ -49,6 +49,26 @@ app.get("/movies/top_rated", (req, res) => {
   });
 });
 
+app.get("/movies/search", (req, res) => {
+  const query = req.query;
+
+  console.log(query.query);
+
+  const options = {
+    method: "get",
+    url: "https://api.themoviedb.org/3/search/movie",
+    params: {
+      language: "pt-BR",
+      api_key: process.env.REACT_APP_TMDB_KEY,
+      query: query.query,
+    },
+  };
+
+  axios.request(options).then((response) => {
+    res.json(response.data.results);
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
 });

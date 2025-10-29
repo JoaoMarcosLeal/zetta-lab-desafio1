@@ -1,0 +1,35 @@
+$dark-bg: #212529;
+$text-color: #f8f9fa;
+
+.filter-container {
+  .search-bar {
+    flex-grow: 1;
+    max-width: 400px;
+  }
+
+  .custom-input-group-text {
+    background-color: $dark-bg;
+    border-color: #495057;
+    color: $text-color;
+  }
+
+  .custom-form-control {
+    background-color: $dark-bg;
+    border-color: #495057;
+    color: $text-color;
+
+    &::placeholder {
+      color: #ced4da;
+      opacity: 0.7;
+    }
+  }
+
+  .custom-select {
+    width: 200px;
+    flex-shrink: 0;
+
+    background-color: $dark-bg;
+    border-color: #495057;
+    color: $text-color;
+  }
+}
