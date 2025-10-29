@@ -1,10 +1,10 @@
 import "./App.scss";
-import MainPageTest from "./Components/MainPage/MainPageTest";
+import MainPage from "./Components/MainPage/MainPage";
 
 function Page() {
   return (
     <>
-      <MainPageTest />
+      <MainPage />
     </>
   );
 }
