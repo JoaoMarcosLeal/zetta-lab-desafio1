@@ -7,6 +7,7 @@ import InputGroup from "react-bootstrap/esm/InputGroup";
 import Form from "react-bootstrap/esm/Form";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { useDebounce } from "../../hooks/useDebounce";
 
 type MovieFilterProps = {
   onChange: (filters: MovieFilters) => void;
@@ -15,10 +16,11 @@ type MovieFilterProps = {
 export default function MovieFilters({ onChange }: MovieFilterProps) {
   const [search, setSearch] = useState<MovieFilters["search"]>("");
   const [category, setCategory] = useState<MovieFilters["category"]>("popular");
+  const debouncedSearch = useDebounce(search);
 
   useEffect(() => {
-    onChange({ category, search });
-  }, [category, search]);
+    onChange({ category, search: debouncedSearch });
+  }, [category, debouncedSearch]);
 
   return (
     <div className="d-flex align-items-center w-100 filter-container">
