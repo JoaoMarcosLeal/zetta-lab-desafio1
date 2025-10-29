@@ -28,17 +28,16 @@ Para colocar o projeto no ar, siga os passos abaixo no terminal:
 ### 1. Clonar o Repositório
 
 ```bash
-git clone <URL_DO_SEU_REPOSITORIO>
-cd <NOME_DO_DIRETORIO_DO_PROJETO>
-2. Variáveis de Ambiente (Chave da API)
+git clone https://github.com/JoaoMarcosLeal/zetta-lab-desafio1.git
+cd zetta-lab-desafio1/Movie Gallery
+```
+### 2. Variáveis de Ambiente (Chave da API)
 Você precisará de uma chave de API do TMDB. Crie um arquivo chamado .env na raiz do projeto e adicione sua chave:
 ```
-```Snippet de código
-
 # Exemplo de variável, o nome real pode variar (ex: VITE_TMDB_API_KEY, REACT_APP_TMDB_API_KEY)
 REACT_APP_TMDB_API_KEY="SUA_CHAVE_AQUI"
 ```
-3. Instalando Dependências
+### 3. Instalando Dependências
 Execute o comando para baixar todas as dependências do projeto:
 
 ```bash
@@ -46,11 +45,11 @@ npm install
 # ou
 # npm i
 ````
-4. Executando o Mini-Backend 
+### 4. Executando o Mini-Backend 
 ```bash
 npm run start:backend
 ```
-5. Rodando o Front-end
+### 5. Rodando o Front-end
 Inicie o servidor de desenvolvimento do React:
 ```bash
 npm run dev
